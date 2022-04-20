@@ -1,0 +1,33 @@
+* SPICE3 file created from ORgate.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.option scale=0.09u
+.param SUPPLY = 1.8
+.global gnd vdd
+
+VDD vdd  gnd 'SUPPLY'
+vin1 a gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 20ns
+vin2 b gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 50ns
+
+M1000 gnd a_n29_n65# out Gnd CMOSN w=14 l=3
++  ad=738 pd=188 as=294 ps=70
+M1001 gnd b a_n29_n65# Gnd CMOSN w=15 l=3
++  ad=0 pd=0 as=480 ps=94
+M1002 a_n29_2# a vdd vdd CMOSP w=14 l=3
++  ad=364 pd=108 as=322 ps=102
+M1003 a_n29_n65# b a_n29_2# vdd CMOSP w=14 l=3
++  ad=238 pd=62 as=0 ps=0
+M1004 a_n29_n65# a gnd Gnd CMOSN w=15 l=3
++  ad=0 pd=0 as=0 ps=0
+M1005 out a_n29_n65# vdd vdd CMOSP w=14 l=3
++  ad=266 pd=66 as=0 ps=0
+C0 vdd Gnd 3.21fF
+
+
+.control
+tran 0.1n 200n
+plot v(out)+4 v(a) v(b)+2
+
+
+.endc
+.end

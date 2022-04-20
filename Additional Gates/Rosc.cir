@@ -1,0 +1,89 @@
+* SPICE3 file created from Rosc.ext - technology: scmos
+
+*changed the node name with special characters to normal names (for example inverter_4/vdd was chnaged to 'vdd', 
+*all other vdd's were changed and gnd was made a common node for all, inverter_x/in was changed to in_x and so on).
+
+.include TSMC_180nm.txt
+.option scale=0.09u
+.param SUPPLY = 1.8
+.global gnd vdd
+
+VDD vdd  gnd 'SUPPLY'
+
+
+M1000 in_1 in_0 vdd vdd CMOSP w=8 l=2
++  ad=40 pd=26 as=200 ps=130
+M1001 in_1 in_0 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=100 ps=90
+M1002 in_2 in_1 vdd vdd CMOSP w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1003 in_2 in_1 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1004 in_3 in_2 vdd vdd CMOSP w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1005 in_3 in_2 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1006 in_4 in_3 vdd vdd CMOSP w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1007 in_4 in_3 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1008 in_0 in_4 vdd vdd CMOSP w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1009 in_0 in_4 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+C0 in_0 in_1 0.15fF
+C1 in_0 vdd 0.18fF
+C2 in_0 vdd 0.37fF
+C3 in_0 in_4 0.15fF
+C4 in_3 vdd 0.03fF
+C5 gnd in_1 0.14fF
+C6 in_1 in_2 0.05fF
+C7 vdd vdd 0.06fF
+C8 in_2 vdd 0.11fF
+C9 in_4 vdd 0.07fF
+C10 gnd in_4 0.14fF
+C11 in_0 vdd 0.21fF
+C12 in_0 gnd 0.14fF
+C13 in_0 in_2 0.09fF
+C14 vdd vdd 0.06fF
+C15 vdd in_1 0.07fF
+C16 vdd vdd 0.06fF
+C17 vdd in_1 0.03fF
+C18 in_3 vdd 0.07fF
+C19 gnd in_2 0.14fF
+C20 vdd vdd 0.06fF
+C21 in_3 vdd 0.11fF
+C22 in_3 in_4 0.05fF
+C23 in_0 vdd 0.13fF
+C24 in_0 vdd 0.13fF
+C25 vdd in_2 0.07fF
+C26 in_0 vdd 0.25fF
+C27 in_0 in_3 0.09fF
+C28 in_1 vdd 0.11fF
+C29 vdd vdd 0.06fF
+C30 in_4 vdd 0.03fF
+C31 vdd in_2 0.03fF
+C32 in_4 vdd 0.11fF
+C33 gnd in_3 0.14fF
+C34 in_3 in_2 0.05fF
+C35 gnd Gnd 1.34fF
+C36 vdd Gnd 1.06fF
+C37 vdd Gnd 0.58fF
+C38 in_4 Gnd 0.34fF
+C39 in_3 Gnd 0.40fF
+C40 vdd Gnd 0.58fF
+C41 in_2 Gnd 0.40fF
+C42 vdd Gnd 0.58fF
+C43 in_1 Gnd 0.40fF
+C44 vdd Gnd 0.58fF
+C45 in_0 Gnd 1.41fF
+C46 vdd Gnd 0.58fF
+
+.control
+tran 0.001n 10n
+plot v(in_4)
+
+
+ 
+.endc
+.end
