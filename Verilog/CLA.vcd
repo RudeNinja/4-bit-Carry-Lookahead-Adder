@@ -1,0 +1,55 @@
+$date
+	Thu Dec  9 11:10:59 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module CLA_tb $end
+$var wire 4 ! sum [3:0] $end
+$var wire 1 " carry $end
+$var reg 4 # a [3:0] $end
+$var reg 4 $ b [3:0] $end
+$var reg 1 % clock $end
+$scope module uut $end
+$var wire 4 & a [3:0] $end
+$var wire 4 ' b [3:0] $end
+$var wire 4 ( sum [3:0] $end
+$var wire 4 ) p [3:0] $end
+$var wire 16 * k [16:1] $end
+$var wire 4 + g [3:0] $end
+$var wire 1 " carry $end
+$var wire 5 , c [4:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx0 ,
+bx +
+bx0xxxx0xx00 *
+bx )
+bx (
+bx '
+bx &
+0%
+bx $
+bx #
+x"
+bx !
+$end
+#10
+1"
+b11110 ,
+b100 !
+b100 (
+b1001000000001100 *
+b101 +
+b1010 )
+b111 $
+b111 '
+b1101 #
+b1101 &
+#40
