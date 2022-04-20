@@ -1,0 +1,110 @@
+* SPICE3 file created from prop_gen.ext - technology: scmos
+
+.include TSMC_180nm.txt
+
+
+.option scale=0.09u
+.param SUPPLY = 1.8
+.global gnd vdd
+
+VDD vdd gnd 'SUPPLY'
+
+vin1 a gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 20ns
+vin2 b gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 40ns
+
+M1000 gnd a a_150_129# Gnd CMOSN w=10 l=2
++  ad=324 pd=160 as=300 ps=120
+M1001 generate a_154_61# gnd Gnd CMOSN w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1002 a_154_12# b gnd Gnd CMOSN w=8 l=2
++  ad=88 pd=38 as=0 ps=0
+M1003 a_135_166# a vdd vdd CMOSP w=7 l=2
++  ad=49 pd=28 as=441 ps=224
+M1004 a_150_129# a_135_166# propagate Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=100 ps=40
+M1005 a_160_205# b vdd vdd CMOSP w=7 l=2
++  ad=70 pd=34 as=0 ps=0
+M1006 vdd a_197_126# a_186_205# vdd CMOSP w=7 l=2
++  ad=0 pd=0 as=77 ps=36
+M1007 a_135_166# a gnd Gnd CMOSN w=9 l=2
++  ad=63 pd=32 as=0 ps=0
+M1008 a_186_205# a propagate vdd CMOSP w=7 l=2
++  ad=0 pd=0 as=84 ps=38
+M1009 a_154_61# a a_154_12# Gnd CMOSN w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1010 a_154_61# b vdd vdd CMOSP w=11 l=2
++  ad=121 pd=44 as=0 ps=0
+M1011 gnd b a_197_126# Gnd CMOSN w=9 l=2
++  ad=0 pd=0 as=63 ps=32
+M1012 generate a_154_61# vdd vdd CMOSP w=11 l=2
++  ad=66 pd=34 as=0 ps=0
+M1013 vdd b a_197_126# vdd CMOSP w=7 l=2
++  ad=0 pd=0 as=49 ps=28
+M1014 propagate a_135_166# a_160_205# vdd CMOSP w=7 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 propagate b a_150_129# Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1016 vdd a a_154_61# vdd CMOSP w=11 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 a_150_129# a_197_126# gnd Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 vdd vdd 0.12fF
+C1 a_135_166# propagate 0.10fF
+C2 generate vdd 0.03fF
+C3 vdd a 0.06fF
+C4 vdd propagate 0.02fF
+C5 vdd a_135_166# 0.10fF
+C6 propagate a 0.19fF
+C7 a_150_129# propagate 0.47fF
+C8 a_135_166# a 0.11fF
+C9 vdd a 0.13fF
+C10 generate gnd 0.07fF
+C11 a gnd 0.26fF
+C12 a_197_126# propagate 0.10fF
+C13 a_150_129# gnd 0.04fF
+C14 vdd b 0.06fF
+C15 a_154_61# vdd 0.09fF
+C16 a_154_61# vdd 0.09fF
+C17 a_150_129# a 0.09fF
+C18 vdd a_197_126# 0.10fF
+C19 propagate b 0.12fF
+C20 a_135_166# b 0.09fF
+C21 a_150_129# a_197_126# 0.09fF
+C22 vdd b 0.13fF
+C23 b gnd 0.32fF
+C24 a_154_61# gnd 0.03fF
+C25 a b 0.66fF
+C26 a_154_61# generate 0.04fF
+C27 a_150_129# b 0.16fF
+C28 vdd vdd 0.11fF
+C29 a_154_61# a 0.13fF
+C30 a_197_126# b 0.03fF
+C31 gnd Gnd 0.36fF
+C32 generate Gnd 0.15fF
+C33 vdd Gnd 0.53fF
+C34 a_154_61# Gnd 0.44fF
+C35 a_150_129# Gnd 0.28fF
+C36 propagate Gnd 0.98fF
+C37 a_197_126# Gnd 0.19fF
+C38 a_135_166# Gnd 0.58fF
+C39 b Gnd 2.47fF
+C40 a Gnd 0.38fF
+C41 vdd Gnd 1.43fF
+C42 vdd Gnd 2.46fF
+
+.control
+set hcopypscolor = 1 *White background for saving plots
+set color0=white ** color0 is used to set the background of the plot (manual sec:17.7))
+set color1=black ** color1 is used to set the grid color of the plot (manual sec:17.7))
+
+tran 0.1n 200n
+set curplottitle= ShubhamPriyadarshan-2020102027_Q5
+
+plot v(a)+2 v(b)+4 v(propagate)+6
+plot v(a)+2 v(b)+4 v(generate)+6
+
+hardcopy propagate.ps v(a)+2 v(b)+4 v(propagate)+6
+hardcopy generate.ps v(a)+2 v(b)+4 v(generate)+6
+
+.endc
+.end

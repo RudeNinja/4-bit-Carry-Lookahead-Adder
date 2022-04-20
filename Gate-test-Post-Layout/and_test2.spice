@@ -1,0 +1,34 @@
+* SPICE3 file created from and_test2.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 a_n33_n13# a a_n45_n13# Gnd nfet w=8 l=2
++  ad=56 pd=30 as=80 ps=36
+M1001 a_n45_n13# a vdd w_n52_30# pfet w=11 l=2
++  ad=77 pd=36 as=275 ps=116
+M1002 gnd b a_n33_n13# Gnd nfet w=8 l=2
++  ad=80 pd=52 as=0 ps=0
+M1003 out a_n45_n13# gnd Gnd nfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1004 vdd b a_n45_n13# w_n52_30# pfet w=11 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 out a_n45_n13# vdd w_n52_30# pfet w=11 l=2
++  ad=66 pd=34 as=0 ps=0
+C0 w_n52_30# a 0.06fF
+C1 a_n45_n13# vdd 0.16fF
+C2 w_n52_30# b 0.06fF
+C3 a_n45_n13# out 0.04fF
+C4 a_n45_n13# a 0.08fF
+C5 w_n52_30# vdd 0.11fF
+C6 out gnd 0.07fF
+C7 b a_n45_n13# 0.08fF
+C8 b a 0.16fF
+C9 w_n52_30# out 0.03fF
+C10 w_n52_30# a_n45_n13# 0.09fF
+C11 gnd Gnd 0.13fF
+C12 out Gnd 0.16fF
+C13 vdd Gnd 0.16fF
+C14 a_n45_n13# Gnd 0.48fF
+C15 b Gnd 0.25fF
+C16 a Gnd 0.25fF
+C17 w_n52_30# Gnd 1.43fF

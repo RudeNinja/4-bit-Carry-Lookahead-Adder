@@ -1,0 +1,36 @@
+* SPICE3 file created from or_test.ext - technology: scmos
+
+.option scale=0.09u
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+
+.global Gnd gnd vdd
+Vdd vdd gnd 'SUPPLY'
+
+
+vin_a1 a gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 20ns
+vin_a2 b gnd pulse 0 1.8 0ns 100ps 100ps 19.9ns 40ns
+
+M1000 a_n30_n5# a vdd vdd CMOSP w=11 l=2
++  ad=176 pd=54 as=231 ps=86
+M1001 out a_n30_n66# vdd vdd CMOSP w=11 l=2
++  ad=99 pd=40 as=0 ps=0
+M1002 a_n30_n66# a gnd Gnd CMOSN w=8 l=2
++  ad=128 pd=48 as=176 ps=92
+M1003 out a_n30_n66# gnd Gnd CMOSN w=8 l=2
++  ad=56 pd=30 as=0 ps=0
+M1004 gnd b a_n30_n66# Gnd CMOSN w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 a_n30_n66# b a_n30_n5# vdd CMOSP w=11 l=2
++  ad=99 pd=40 as=0 ps=0
+C0 vdd Gnd 3.23fF
+
+.control
+tran 0.1n 200n
+
+set curplottitle= ShubhamPriyadarshan - 2020102027
+
+plot v(a) v(b)+2 v(out)+4
+
+.endc
+.end

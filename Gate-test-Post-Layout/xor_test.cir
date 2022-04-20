@@ -1,0 +1,77 @@
+* SPICE3 file created from xor_test.ext - technology: scmos
+
+.option scale=0.09u
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+
+.global Gnd gnd vdd
+Vdd vdd gnd 'SUPPLY'
+
+
+vin_a1 a gnd pulse 0 1.8 0ns 100ps 100ps 9.9ns 20ns
+vin_a2 b gnd pulse 0 1.8 0ns 100ps 100ps 19.9ns 40ns
+
+M1000 gnd a a_15_n48# Gnd CMOSN w=10 l=2
++  ad=236 pd=106 as=300 ps=120
+M1001 vdd b a_62_n51# vdd CMOSP w=7 l=2
++  ad=210 pd=116 as=49 ps=28
+M1002 out b a_15_n48# Gnd CMOSN w=10 l=2
++  ad=100 pd=40 as=0 ps=0
+M1003 vdd a_62_n51# a_51_28# vdd CMOSP w=7 l=2
++  ad=0 pd=0 as=77 ps=36
+M1004 a_15_n48# a_62_n51# gnd Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 a_0_n11# a gnd Gnd CMOSN w=9 l=2
++  ad=63 pd=32 as=0 ps=0
+M1006 a_0_n11# a vdd vdd CMOSP w=7 l=2
++  ad=49 pd=28 as=0 ps=0
+M1007 a_15_n48# a_0_n11# out Gnd CMOSN w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1008 a_25_28# b vdd vdd CMOSP w=7 l=2
++  ad=70 pd=34 as=0 ps=0
+M1009 out a_0_n11# a_25_28# vdd CMOSP w=7 l=2
++  ad=84 pd=38 as=0 ps=0
+M1010 gnd b a_62_n51# Gnd CMOSN w=9 l=2
++  ad=0 pd=0 as=63 ps=32
+M1011 a_51_28# a out vdd CMOSP w=7 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 vdd out 0.02fF
+C1 a a_15_n48# 0.09fF
+C2 a_15_n48# b 0.16fF
+C3 a a_0_n11# 0.11fF
+C4 vdd a_62_n51# 0.10fF
+C5 b a_0_n11# 0.09fF
+C6 a_15_n48# out 0.47fF
+C7 vdd vdd 0.12fF
+C8 out a_0_n11# 0.10fF
+C9 a_15_n48# gnd 0.04fF
+C10 a_15_n48# a_62_n51# 0.09fF
+C11 a b 0.53fF
+C12 vdd a_0_n11# 0.10fF
+C13 a out 0.19fF
+C14 out b 0.12fF
+C15 a gnd 0.26fF
+C16 gnd b 0.32fF
+C17 b a_62_n51# 0.03fF
+C18 vdd a 0.13fF
+C19 vdd b 0.13fF
+C20 out a_62_n51# 0.10fF
+C21 gnd Gnd 0.10fF
+C22 a_15_n48# Gnd 0.21fF
+C23 vdd Gnd 0.37fF
+C24 out Gnd 0.12fF
+C25 a_62_n51# Gnd 0.55fF
+C26 a_0_n11# Gnd 0.49fF
+C27 b Gnd 0.74fF
+C28 a Gnd 0.96fF
+C29 vdd Gnd 2.46fF
+
+.control
+tran 0.1n 200n
+
+set curplottitle= ShubhamPriyadarshan - 2020102027
+
+plot v(a) v(b)+2 v(out)+4
+
+.endc
+.end
