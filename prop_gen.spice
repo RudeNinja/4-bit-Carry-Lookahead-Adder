@@ -1,0 +1,83 @@
+* SPICE3 file created from prop_gen.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 gnd a a_150_129# Gnd nfet w=10 l=2
++  ad=324 pd=160 as=300 ps=120
+M1001 generate a_154_61# gnd Gnd nfet w=8 l=2
++  ad=48 pd=28 as=0 ps=0
+M1002 a_154_12# b gnd Gnd nfet w=8 l=2
++  ad=88 pd=38 as=0 ps=0
+M1003 a_135_166# a vdd w_119_199# pfet w=7 l=2
++  ad=49 pd=28 as=441 ps=224
+M1004 a_150_129# a_135_166# propagate Gnd nfet w=10 l=2
++  ad=0 pd=0 as=100 ps=40
+M1005 a_160_205# b vdd w_119_199# pfet w=7 l=2
++  ad=70 pd=34 as=0 ps=0
+M1006 vdd a_197_126# a_186_205# w_119_199# pfet w=7 l=2
++  ad=0 pd=0 as=77 ps=36
+M1007 a_135_166# a gnd Gnd nfet w=9 l=2
++  ad=63 pd=32 as=0 ps=0
+M1008 a_186_205# a propagate w_119_199# pfet w=7 l=2
++  ad=0 pd=0 as=84 ps=38
+M1009 a_154_61# a a_154_12# Gnd nfet w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1010 a_154_61# b vdd w_139_55# pfet w=11 l=2
++  ad=121 pd=44 as=0 ps=0
+M1011 gnd b a_197_126# Gnd nfet w=9 l=2
++  ad=0 pd=0 as=63 ps=32
+M1012 generate a_154_61# vdd w_139_55# pfet w=11 l=2
++  ad=66 pd=34 as=0 ps=0
+M1013 vdd b a_197_126# w_119_199# pfet w=7 l=2
++  ad=0 pd=0 as=49 ps=28
+M1014 propagate a_135_166# a_160_205# w_119_199# pfet w=7 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 propagate b a_150_129# Gnd nfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1016 vdd a a_154_61# w_139_55# pfet w=11 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 a_150_129# a_197_126# gnd Gnd nfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 w_119_199# vdd 0.12fF
+C1 a_135_166# propagate 0.10fF
+C2 generate w_139_55# 0.03fF
+C3 w_139_55# a 0.06fF
+C4 w_119_199# propagate 0.02fF
+C5 w_119_199# a_135_166# 0.10fF
+C6 propagate a 0.19fF
+C7 a_150_129# propagate 0.47fF
+C8 a_135_166# a 0.11fF
+C9 w_119_199# a 0.13fF
+C10 generate gnd 0.07fF
+C11 a gnd 0.26fF
+C12 a_197_126# propagate 0.10fF
+C13 a_150_129# gnd 0.04fF
+C14 w_139_55# b 0.06fF
+C15 a_154_61# vdd 0.09fF
+C16 a_154_61# w_139_55# 0.09fF
+C17 a_150_129# a 0.09fF
+C18 w_119_199# a_197_126# 0.10fF
+C19 propagate b 0.12fF
+C20 a_135_166# b 0.09fF
+C21 a_150_129# a_197_126# 0.09fF
+C22 w_119_199# b 0.13fF
+C23 b gnd 0.32fF
+C24 a_154_61# gnd 0.03fF
+C25 a b 0.66fF
+C26 a_154_61# generate 0.04fF
+C27 a_150_129# b 0.16fF
+C28 vdd w_139_55# 0.11fF
+C29 a_154_61# a 0.13fF
+C30 a_197_126# b 0.03fF
+C31 gnd Gnd 0.36fF
+C32 generate Gnd 0.15fF
+C33 vdd Gnd 0.53fF
+C34 a_154_61# Gnd 0.44fF
+C35 a_150_129# Gnd 0.28fF
+C36 propagate Gnd 0.98fF
+C37 a_197_126# Gnd 0.19fF
+C38 a_135_166# Gnd 0.58fF
+C39 b Gnd 2.47fF
+C40 a Gnd 0.38fF
+C41 w_139_55# Gnd 1.43fF
+C42 w_119_199# Gnd 2.46fF

@@ -1,0 +1,198 @@
+* SPICE3 file created from Dtest.ext - technology: scmos
+
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.global gnd vdd
+
+Vdd vdd gnd 'SUPPLY'
+
+
+.option scale=0.09u
+
+M1000 vdd a_n76_78# a_7_127# Vdd CMOSP w=12 l=2
++  ad=1500 pd=706 as=156 ps=50
+M1001 vdd a_7_127# a_53_n11# Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=156 ps=50
+M1002 a_n18_n12# D vdd vdd CMOSP w=12 l=2
++  ad=96 pd=40 as=0 ps=0
+M1003 vdd a_215_127# q Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=156 ps=50
+M1004 a_n76_78# clk gnd Gnd CMOSN w=7 l=2
++  ad=56 pd=30 as=414 ps=270
+M1005 a_53_100# a_53_n11# vdd Vdd CMOSP w=12 l=2
++  ad=181 pd=70 as=0 ps=0
+M1006 vdd clk a_215_22# Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=156 ps=50
+M1007 vdd a_215_22# a_261_100# Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=181 ps=70
+M1008 a_7_n37# a_n18_n12# gnd Gnd CMOSN w=6 l=2
++  ad=78 pd=38 as=0 ps=0
+M1009 a_215_22# clk a_215_n37# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=78 ps=38
+M1010 a_53_n11# a_53_100# vdd Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 a_7_22# a_n18_n12# vdd vdd CMOSP w=12 l=2
++  ad=156 pd=50 as=0 ps=0
+M1012 a_59_68# a_53_100# gnd Gnd CMOSN w=6 l=2
++  ad=78 pd=38 as=0 ps=0
+M1013 a_215_127# clk a_215_68# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=78 ps=38
+M1014 q a_261_100# vdd Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 q a_215_127# a_267_68# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=78 ps=38
+M1016 a_215_127# a_53_n11# vdd Vdd CMOSP w=12 l=2
++  ad=156 pd=50 as=0 ps=0
+M1017 a_215_22# a_190_n12# vdd Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1018 a_7_22# a_n76_78# a_7_n37# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=0 ps=0
+M1019 a_53_100# a_7_22# a_59_n37# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=78 ps=38
+M1020 a_261_100# q vdd Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1021 a_261_100# a_215_22# a_267_n37# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=78 ps=38
+M1022 a_7_68# D gnd Gnd CMOSN w=6 l=2
++  ad=78 pd=38 as=0 ps=0
+M1023 a_n76_78# clk vdd Vdd CMOSP w=12 l=2
++  ad=96 pd=40 as=0 ps=0
+M1024 vdd a_n76_78# a_7_22# vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1025 a_7_127# D vdd Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1026 a_215_68# a_53_n11# gnd Gnd CMOSN w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1027 vdd a_7_22# a_53_100# Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1028 a_n18_n12# D gnd Gnd CMOSN w=7 l=2
++  ad=56 pd=30 as=0 ps=0
+M1029 a_267_68# a_261_100# gnd Gnd CMOSN w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1030 a_59_n37# a_53_n11# gnd Gnd CMOSN w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1031 vdd clk a_215_127# Vdd CMOSP w=12 l=2
++  ad=0 pd=0 as=0 ps=0
+M1032 a_190_n12# a_53_n11# vdd Vdd CMOSP w=12 l=2
++  ad=96 pd=40 as=0 ps=0
+M1033 a_215_n37# a_190_n12# gnd Gnd CMOSN w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1034 a_267_n37# q gnd Gnd CMOSN w=6 l=2
++  ad=0 pd=0 as=0 ps=0
+M1035 a_7_127# a_n76_78# a_7_68# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=0 ps=0
+M1036 a_190_n12# a_53_n11# gnd Gnd CMOSN w=7 l=2
++  ad=56 pd=30 as=0 ps=0
+M1037 a_53_n11# a_7_127# a_59_68# Gnd CMOSN w=6 l=2
++  ad=42 pd=26 as=0 ps=0
+C0 vdd a_n76_78# 0.07fF
+C1 a_215_127# q 0.11fF
+C2 a_261_100# a_215_22# 0.11fF
+C3 a_53_100# a_53_n11# 0.57fF
+C4 Vdd a_53_n11# 0.07fF
+C5 Vdd a_261_100# 0.03fF
+C6 Vdd vdd 0.08fF
+C7 a_261_100# a_215_127# 0.08fF
+C8 clk a_190_n12# 0.08fF
+C9 a_n18_n12# a_7_22# 0.03fF
+C10 Vdd clk 0.07fF
+C11 Vdd a_7_127# 0.07fF
+C12 Vdd clk 0.07fF
+C13 Vdd q 0.03fF
+C14 vdd a_7_22# 0.03fF
+C15 Vdd vdd 0.08fF
+C16 Vdd a_n76_78# 0.07fF
+C17 a_53_n11# a_7_22# 0.11fF
+C18 a_53_100# a_7_22# 0.11fF
+C19 Vdd a_215_127# 0.03fF
+C20 Vdd a_53_n11# 0.07fF
+C21 Vdd a_261_100# 0.07fF
+C22 Vdd vdd 0.04fF
+C23 a_n76_78# a_7_22# 0.11fF
+C24 Vdd a_215_22# 0.07fF
+C25 Vdd vdd 0.13fF
+C26 a_n76_78# gnd 0.15fF
+C27 Vdd a_53_100# 0.03fF
+C28 a_53_n11# clk 0.20fF
+C29 Vdd clk 0.07fF
+C30 a_n76_78# clk 0.03fF
+C31 D a_n18_n12# 0.03fF
+C32 Vdd a_190_n12# 0.11fF
+C33 vdd vdd 0.13fF
+C34 a_7_127# a_53_n11# 0.11fF
+C35 vdd D 0.07fF
+C36 a_261_100# q 0.43fF
+C37 clk a_215_22# 0.11fF
+C38 a_215_127# gnd 0.04fF
+C39 a_53_100# a_7_127# 0.08fF
+C40 Vdd a_53_n11# 0.03fF
+C41 a_n76_78# a_7_127# 0.12fF
+C42 Vdd a_7_22# 0.07fF
+C43 Vdd vdd 0.08fF
+C44 Vdd a_53_100# 0.07fF
+C45 clk a_215_127# 0.12fF
+C46 D a_n76_78# 0.16fF
+C47 a_53_n11# a_190_n12# 0.03fF
+C48 clk gnd 0.32fF
+C49 Vdd a_7_127# 0.03fF
+C50 Vdd a_53_n11# 0.07fF
+C51 Vdd a_215_127# 0.07fF
+C52 vdd a_n18_n12# 0.11fF
+C53 Vdd vdd 0.08fF
+C54 Vdd vdd 0.08fF
+C55 Vdd a_n76_78# 0.04fF
+C56 Vdd D 0.07fF
+C57 a_7_127# gnd 0.04fF
+C58 q a_215_22# 0.11fF
+C59 a_190_n12# a_215_22# 0.03fF
+C60 Vdd q 0.07fF
+C61 Vdd vdd 0.08fF
+C62 Vdd a_215_22# 0.03fF
+C63 a_n76_78# a_n18_n12# 0.08fF
+C64 gnd Gnd 0.58fF
+C65 vdd Gnd 0.81fF
+C66 a_215_22# Gnd 0.32fF
+C67 a_190_n12# Gnd 0.44fF
+C68 a_7_22# Gnd 0.32fF
+C69 a_n18_n12# Gnd 0.44fF
+C70 q Gnd 0.80fF
+C71 a_215_127# Gnd 0.65fF
+C72 a_261_100# Gnd 1.68fF
+C73 clk Gnd 0.27fF
+C74 a_53_n11# Gnd 0.80fF
+C75 a_7_127# Gnd 0.65fF
+C76 a_53_100# Gnd 1.63fF
+C77 a_n76_78# Gnd 0.90fF
+C78 D Gnd 0.07fF
+C79 Vdd Gnd 0.68fF
+C80 Vdd Gnd 1.82fF
+C81 Vdd Gnd 0.68fF
+C82 vdd Gnd 1.82fF
+C83 Vdd Gnd 1.19fF
+C84 Vdd Gnd 1.19fF
+C85 Vdd Gnd 1.19fF
+C86 Vdd Gnd 1.19fF
+C87 Vdd Gnd 0.79fF
+
+
+.tran 0.1n 100n
+vin_a1 D gnd  pulse 0 1.8 4.9ns 0 0 6ns 12ns
+vin_clk clk gnd pulse 0 1.8 5ns 100ps 100ps 9.9ns 20ns 
+
+.control
+set hcopypscolor = 1 *White background for saving plots
+set color0=white ** color0 is used to set the background of the plot (manual sec:17.7))
+set color1=black ** color1 is used to set the grid color of the plot (manual sec:17.7))
+
+
+run
+
+set curplottitle= Shubham_2020102027_Q3
+plot v(D)+2 v(clk)+4 v(q)
+  
+ 
+
+
+.endc
+.end
