@@ -1,0 +1,61 @@
+*XOR Gate Netlist
+.include TSMC_180nm.txt
+.param SUPPLY = 1.8
+.param LAMBDA = 0.09u
+.param width_P = 20*LAMBDA
+.param width_N = 10*LAMBDA
+.global gnd vdd
+Vdd vdd gnd SUPPLY
+Vin1 x gnd PULSE 0 SUPPLY 0 0.5n 0.5n 1u 2u
+Vin2 y gnd PULSE 0 SUPPLY 0 0.5n 0.5n 1u 4u
+M1 y_p y vdd vdd CMOSP W = {width_P} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+M2 y_p y gnd gnd CMOSN W = {width_N} L = {2 * LAMBDA}
++AS = {5 * width_N * LAMBDA} PS = {10 * LAMBDA + 2 * width_N}
++AD = {5 * width_N * LAMBDA} PD = {10 * LAMBDA + 2 * width_N}
+M3 a x vdd vdd CMOSP W = {width_P} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+
+
+
+M4 out y_p a a CMOSP W = {width_N} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+M5 b x_p vdd vdd CMOSP W = {width_P} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+M6 out y b b CMOSP W = {width_P} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+M7 out x c c CMOSN W = {width_N} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+M8 c y gnd gnd CMOSN W = {width_N} L = {2 * LAMBDA}
++AS = {5 * width_N * LAMBDA} PS = {10 * LAMBDA + 2 * width_N}
++AD = {5 * width_N * LAMBDA} PD = {10 * LAMBDA + 2 * width_N}
+M9 out x_p d d CMOSN W = {width_N} L = {2 * LAMBDA}
++AS = {5 * width_N * LAMBDA} PS = {10 * LAMBDA + 2 * width_N}
++AD = {5 * width_N * LAMBDA} PD = {10 * LAMBDA + 2 * width_N}
+M10 d y_p gnd gnd CMOSN W = {width_N} L = {2 * LAMBDA}
++AS = {5 * width_N * LAMBDA} PS = {10 * LAMBDA + 2 * width_N}
++AD = {5 * width_N * LAMBDA} PD = {10 * LAMBDA + 2 * width_N}
+M11 x_p x vdd vdd CMOSP W = {width_P} L = {2 * LAMBDA}
++AS = {5 * width_P * LAMBDA} PS = {10 * LAMBDA + 2 * width_P}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+M12 x_p x gnd gnd CMOSN W = {width_N} L = {2 * LAMBDA}
++AD = {5 * width_P * LAMBDA} PD = {10 * LAMBDA + 2 * width_P}
+
+.tran 0.1u 50u
+.measure tran td1
++trig v(x) val=0.5*SUPPLY rise=1
++targ v(out) val=0.5*SUPPLY rise=1
+.measure tran td2
++trig v(y) val=0.5*SUPPLY rise=1
++targ v(out) val=0.5*SUPPLY rise=1
+.control
+run
+plot v(x) v(y)+2 v(out)+4
+.endc
+.end

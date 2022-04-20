@@ -1,0 +1,83 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.global gnd vdd
+.param width_N={6*LAMBDA}
+Vdd vdd gnd 'SUPPLY'
+
+
+.subckt nand in1 in2 out vdd gnd 
+.param width_P=20*LAMBDA
+.param width_N=10*LAMBDA
+
+M1 out in1 vdd vdd CMOSP W={width_P} L={2*LAMBDA} 
++AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P}AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M2 out in2 vdd vdd CMOSP W={width_P} L={2*LAMBDA} 
++AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P}AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+M3 out in1 d d CMOSN W={width_N} L={2*LAMBDA} 
++AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N}AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M4 d in2 gnd gnd CMOSN W={width_N} L={2*LAMBDA} 
++AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N}AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+.ends nand
+
+
+.subckt dlatch d clk q invq vdd gnd 
+.param width_P=20*LAMBDA
+.param width_N=10*LAMBDA
+
+M11 invd  d gnd gnd CMOSN W={width_N} L={2*LAMBDA} 
++AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N}AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M21 invd d vdd vdd CMOSP W={width_P} L={2*LAMBDA} 
++AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P}AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+x1 d clk s vdd gnd nand
+x2 invd clk r vdd gnd nand
+x3 s invq q vdd gnd nand
+x4 r q invq vdd gnd nand
+.ends dlatch
+
+.subckt dflipflop d clk q invq vdd gnd 
+.param width_P=20*LAMBDA
+.param width_N=10*LAMBDA
+
+M12 invclk  clk gnd gnd CMOSN W={width_N} L={2*LAMBDA} 
++AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N}AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+
+M22 invclk clk vdd vdd CMOSP W={width_P} L={2*LAMBDA} 
++AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P}AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+x5 d invclk q1 invq1 vdd gnd dlatch
+x6 q1 clk q invq vdd gnd dlatch
+.ends dflipflop
+
+x5 d clk q invq vdd gnd dflipflop
+
+
+.tran 0.1n 100n
+vin_a1 d gnd  pulse 0 1.8 4.9ns 0 0 6ns 12ns
+vin_clk clk gnd pulse 0 1.8 5ns 100ps 100ps 9.9ns 20ns 
+
+.control
+set hcopypscolor = 1 *White background for saving plots
+set color0=white ** color0 is used to set the background of the plot (manual sec:17.7))
+set color1=black ** color1 is used to set the grid color of the plot (manual sec:17.7))
+
+
+run
+set curplottitle= Shubham_2020102027_Q3
+
+plot v(d)+2 v(clk)+4 v(q)
+
+.endc
+.end
+
+
+
+
+
+
